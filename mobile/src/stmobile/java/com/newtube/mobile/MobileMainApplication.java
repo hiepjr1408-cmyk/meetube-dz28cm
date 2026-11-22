@@ -147,6 +147,31 @@ public class MobileMainApplication extends MainApplication {
         return name != null && name.endsWith(":phoenix");
     }
 
+    /**
+     * MEETUBE(vi): Vietnamese is MeeTube's default language. The default resources are Vietnamese
+     * (English moved to values-en), but a phone set to English would still pick values-en, so on the
+     * first launch the app language is pinned to Vietnamese when the person has not chosen one. It
+     * runs once; after that Settings > Language decides, and "Default" there follows the system.
+     */
+    private void applyVietnameseDefault() {
+        try {
+            android.content.SharedPreferences marker = getSharedPreferences("meetube_locale", MODE_PRIVATE);
+            if (marker.getBoolean("vi_default_applied", false)) {
+                return;
+            }
+            marker.edit().putBoolean("vi_default_applied", true).apply();
+            com.liskovsoft.sharedutils.locale.LocaleUpdater updater =
+                    new com.liskovsoft.sharedutils.locale.LocaleUpdater(this);
+            String language = updater.getPreferredLanguage();
+            if (language == null || language.isEmpty()) {
+                updater.setPreferredLanguage("vi_VN");
+                com.liskovsoft.sharedutils.locale.LocaleUpdater.clearCache();
+            }
+        } catch (Throwable ignored) {
+            // Never block start-up over a language preference.
+        }
+    }
+
     @Override
     public void onCreate() {
         // Settings' Restart runs ProcessPhoenix's activity in its own ":phoenix" process, which
@@ -227,6 +252,7 @@ public class MobileMainApplication extends MainApplication {
         // Keep ALL existing TV init: Conscrypt, GlobalPreferences, multidex, the
         // global exception handler and every other View->Activity mapping.
         super.onCreate();
+        applyVietnameseDefault(); // MEETUBE(vi): Vietnamese is the default app language
         com.newtube.mobile.player.Media3PlayerController.applyHdrSetting(this); // MEETUBE(issue #35)
         // MEETUBE(glass): which screen a sheet in its own activity frosts.
         com.newtube.mobile.ui.common.SheetGlass.track(this, com.newtube.mobile.ui.dialog.MobileAppDialogActivity.class);
