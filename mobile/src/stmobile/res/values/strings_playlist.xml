@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MEETUBE(playlist page): English labels for the phone playlist header. -->
-    <string name="mobile_playlist_by_owner">by %1$s</string>
-    <string name="mobile_playlist_type">Playlist</string>
-    <string name="mobile_playlist_download_all">Download all</string>
-    <string name="mobile_playlist_download_confirm">Download %1$d videos?</string>
-    <string name="mobile_playlist_download_quality">Download quality for all videos</string>
-    <string name="mobile_playlist_download_best">Best available</string>
-    <string name="mobile_playlist_download_queued">Queued %1$d videos</string>
-    <string name="mobile_playlist_download_skipped">Queued %1$d videos. %2$d unavailable.</string>
-    <string name="mobile_playlist_load_failed">Couldn\'t load the full playlist. Try again.</string>
-    <string name="mobile_playlist_sort">Sort by</string>
-    <string name="mobile_playlist_sort_manual">Manual</string>
-    <string name="mobile_playlist_sort_newest">Date published (newest)</string>
-    <string name="mobile_playlist_sort_oldest">Date published (oldest)</string>
-    <string name="mobile_playlist_sort_popular">Most popular</string>
-    <string name="mobile_playlist_filter_all">All</string>
-    <string name="mobile_playlist_filter_videos">Videos</string>
+    <string name="mobile_playlist_by_owner">bởi %1$s</string>
+    <string name="mobile_playlist_type">Danh sách phát</string>
+    <string name="mobile_playlist_download_all">Tải xuống tất cả</string>
+    <string name="mobile_playlist_download_confirm">Tải xuống %1$d video?</string>
+    <string name="mobile_playlist_download_quality">Chất lượng tải xuống cho tất cả video</string>
+    <string name="mobile_playlist_download_best">Tốt nhất hiện có</string>
+    <string name="mobile_playlist_download_queued">Đã thêm %1$d video vào hàng đợi</string>
+    <string name="mobile_playlist_download_skipped">Đã thêm %1$d video vào hàng đợi. %2$d video không khả dụng.</string>
+    <string name="mobile_playlist_load_failed">Không thể tải toàn bộ danh sách phát. Hãy thử lại.</string>
+    <string name="mobile_playlist_sort">Sắp xếp theo</string>
+    <string name="mobile_playlist_sort_manual">Thủ công</string>
+    <string name="mobile_playlist_sort_newest">Ngày xuất bản (mới nhất)</string>
+    <string name="mobile_playlist_sort_oldest">Ngày xuất bản (cũ nhất)</string>
+    <string name="mobile_playlist_sort_popular">Phổ biến nhất</string>
+    <string name="mobile_playlist_filter_all">Tất cả</string>
+    <string name="mobile_playlist_filter_videos">Video</string>
     <string name="mobile_playlist_filter_shorts">Shorts</string>
-    <string name="mobile_playlist_download_select">Select videos</string>
-    <string name="mobile_playlist_select_all">Select all</string>
-    <string name="mobile_playlist_selected">%1$d selected</string>
-    <string name="mobile_playlist_download_selected">Download</string>
-    <string name="mobile_playlist_add_videos">Add videos</string>
-    <string name="mobile_playlist_add_hint">Search to add to %1$s</string>
-    <string name="mobile_playlist_loading">Loading playlist</string>
+    <string name="mobile_playlist_download_select">Chọn video</string>
+    <string name="mobile_playlist_select_all">Chọn tất cả</string>
+    <string name="mobile_playlist_selected">Đã chọn %1$d</string>
+    <string name="mobile_playlist_download_selected">Tải xuống</string>
+    <string name="mobile_playlist_add_videos">Thêm video</string>
+    <string name="mobile_playlist_add_hint">Tìm kiếm để thêm vào %1$s</string>
+    <string name="mobile_playlist_loading">Đang tải danh sách phát</string>
     <plurals name="mobile_playlist_video_count">
         <item quantity="one">%d video</item>
-        <item quantity="other">%d videos</item>
+        <item quantity="other">%d video</item>
     </plurals>
 </resources>
