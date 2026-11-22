@@ -1,3 +1,5 @@
+# Build APK debug (không cần keystore/secret). Chạy tay: Actions > Build debug APK > Run workflow.
+# APK nằm ở mục Artifacts của lần chạy. Bản debug có hậu tố .debug nên cài song song, không đè app đang dùng.
 name: Build debug APK
 
 on:
@@ -7,23 +9,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           submodules: recursive
-      - name: Áp dụng bản Việt hoá
-        run: |
-          unzip -q -o meetube-vi-full.zip -d /tmp/vi
-          cp -r /tmp/vi/meetube-main/. .
-      - uses: actions/setup-java@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
         with:
           java-version: '21'
           distribution: 'temurin'
           cache: 'gradle'
-      - run: |
+
+      - name: Build
+        run: |
           chmod +x gradlew
           ./gradlew :mobile:assembleStmobileDebug
-      - uses: actions/upload-artifact@v4
+
+      - name: Upload APKs
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: MeeTube-debug
-          path: mobile/build/outputs/apk/stmobile/debug/*.apk
+          path: mobile/build/outputs/renamed_apks/stmobileDebug/*.apk
           if-no-files-found: error
